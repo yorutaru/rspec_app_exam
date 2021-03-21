@@ -5,5 +5,10 @@ FactoryBot.define do
     from = Date.parse("2019/08/01")
     to   = Date.parse("2019/12/31")
     deadline { Random.rand(from..to) }
+
+    #ステータスが完了しているタスク
+    trait :status_done do
+      status { (2) } 
+    end
   end
 end
