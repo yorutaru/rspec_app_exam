@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'Task', type: :system do
   let(:project) { create(:project) }
-  let(:task) { create(:task, project_id: project.id) }
+  let(:task) { create(:task) }
   
   describe 'Task一覧' do
     context '正常系' do
@@ -62,7 +62,7 @@ RSpec.describe 'Task', type: :system do
         fill_in 'Deadline', with: Time.current
         click_button 'Update Task'
         click_link 'Back'
-        expect(find('.task_list')).to have_content(Time.current.strftime('%-m/%d %H:%M'))
+        expect(find('.task_list')).to have_content(Time.current.strftime('%-m/%d %-H:%M'))
         expect(current_path).to eq project_tasks_path(project)
       end
 
