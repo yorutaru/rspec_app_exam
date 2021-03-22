@@ -8,7 +8,7 @@ FactoryBot.define do
 
     #ステータスが完了しているタスク
     trait :status_done do
-      status { (2) } 
+      status { :done } 
     end
   end
 end
